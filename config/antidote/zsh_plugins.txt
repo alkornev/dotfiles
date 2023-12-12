@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+ohmyzsh/ohmyzsh path:lib
+
