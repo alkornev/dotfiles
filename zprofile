@@ -1,6 +1,10 @@
 ## vim:ft=bash:
 __ZPROFILE=1
 
+# linux
+if [[ -d /home/linuxbrew/.linuxbrew ]]; then
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi
 
 # intel mac
 if [[ -d /usr/local/Homebrew/ ]]; then
