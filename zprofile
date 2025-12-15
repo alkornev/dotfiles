@@ -38,10 +38,16 @@ fi
 
 PATH=/usr/local/sbin:"$PATH"
 PATH=/usr/local/bin:"$PATH"
-
+PATH="$HOME"/.cargo/bin:"$PATH"
 PATH="$HOME"/miniconda/condabin:"$PATH"
 PATH="$HOME"/.local/bin:"$PATH"
 PATH="$HOME"/bin:"$PATH"
 
 
+
+
+
+
 export PATH
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+export PATH="/usr/local/opt/node@20/bin:$PATH"

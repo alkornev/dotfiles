@@ -39,20 +39,18 @@ fi
 ##############################
 # antidote
 ##############################
-ZDOTDIR="$HOME"/.config/antidote
-
-if [[ ! -d "$ZDOTDIR" ]]; then
-	git clone --depth=1 https://github.com/mattmc3/antidote.git "$ZDOTDIR"
-fi
+ZDOTDIR="$HOME"/.config/antidote/
+zsh_plugins=${ZDOTDIR:-~}/zsh_plugins
 
 
-if [[ ! "$ZDOTDIR"/zsh_plugins.zsh -nt "$ZDOTDIR"/zsh_plugins.txt ]]; then
+
+if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
   (
-    source "$ZDOTDIR"/antidote.zsh
-    antidote bundle < "$ZDOTDIR"/zsh_plugins.txt > "$ZDOTDIR"/zsh_plugins.zsh
+    antidote bundle <${zsh_plugins}.txt > !${zsh_plugins}.zsh
   )
 fi
-source "$ZDOTDIR"/zsh_plugins.zsh
+source "$ZDOTDIR"/antidote.zsh
+antidote load ${ZDOTDIR:-$HOME}/zsh_plugins.txt
 
 plugins=(
 	git

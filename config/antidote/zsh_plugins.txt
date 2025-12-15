@@ -1,4 +1,11 @@
 #!/bin/zsh
 
-ohmyzsh/ohmyzsh path:lib
+getantidote/use-omz
 
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions
+
+ohmyzsh/ohmyzsh path:lib
+ohmyzsh/ohmyzsh path:plugins/extract
