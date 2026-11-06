@@ -176,3 +176,14 @@ venv () {
   done
 }
 
+##############################
+# Zellij
+##############################
+# Reuse one persistent session when opening a terminal. Skip scripts, nested
+# multiplexers, and shells explicitly started with ZELLIJ_AUTO_START=false.
+if [[ -o interactive && -o rcs && -z "$ZSH_EXECUTION_STRING" && -t 0 && -t 1 &&
+      -z "$ZELLIJ" && -z "$TMUX" && "$TERM" != dumb &&
+      "${ZELLIJ_AUTO_START:-true}" != false ]] && (( $+commands[zellij] )); then
+  command zellij attach --create "${ZELLIJ_AUTO_SESSION:-main}" options --on-force-close detach
+fi
+
