@@ -1,0 +1,10 @@
+font-family = BitstromWera Nerd Font
+font-size = 18
+maximize = true
+window-padding-x = 0
+window-padding-y = 0
+mouse-scroll-multiplier = 3
+copy-on-select = false
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor

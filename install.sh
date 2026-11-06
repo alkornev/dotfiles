@@ -40,11 +40,16 @@ fi
 mkdir -p "$HOME/.config"
 (
   cd "$HOME/.config" || exit
-  rm -rf alacritty
+  if [[ -L alacritty && "$(readlink alacritty)" == "$DOTFILES_DIR/config/alacritty" ]]; then
+    rm alacritty
+  fi
   rm -rf gitignore_global
   rm -rf starship.toml
   rm -rf antidote
-  ln -s "$DOTFILES_DIR/config/alacritty" alacritty
+  if [[ -z "$WSL_DISTRO_NAME" && -z "$WSL_INTEROP" && "$(uname -r)" != *[Mm]icrosoft* ]]; then
+    rm -rf ghostty
+    ln -s "$DOTFILES_DIR/config/ghostty" ghostty
+  fi
   ln -s "$DOTFILES_DIR/config/gitignore_global" gitignore_global
   ln -s "$DOTFILES_DIR/config/starship.toml" starship.toml
   ln -s "$DOTFILES_DIR/config/antidote" antidote
