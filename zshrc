@@ -176,3 +176,6 @@ venv () {
   done
 }
 
+if [[ -z "$ZELLIJ" ]]; then
+  zellij a || zellij
+fi
